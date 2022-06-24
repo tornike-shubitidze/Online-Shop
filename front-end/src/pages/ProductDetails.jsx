@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import parse from 'html-react-parser';
 import { addToBasket } from '../redux/actions';
 import { connect } from "react-redux";
 import { API_URL } from "../GraphQL/settings";
@@ -16,7 +17,6 @@ class ProductDetails extends Component {
             hasError: false,
             errorMessage: '',
             mainImg: ''
-
         }
     }
 
@@ -70,6 +70,7 @@ class ProductDetails extends Component {
 
     render() {
         const { product } = this.state;
+        console.log(product);
 
         return (
             <>
@@ -78,19 +79,19 @@ class ProductDetails extends Component {
                         <div className="images">
                             {product.gallery.map((imgUrl, i) =>
                                 <img
+                                    alt=""
                                     key={i}
-                                    style={{ cursor: 'pointer', marginBottom: '15px' }}
                                     onClick={() => this.setState({ mainImg: imgUrl })}
                                     src={`${imgUrl}`} />
                             )}
                         </div>
                         <div className="main-image">
-                            <img src={`${this.state.mainImg}`} />
+                            <img src={`${this.state.mainImg}`} alt="" />
                         </div>
                         <div className="product-info">
                             <h2>{product.name}</h2>
-                            <h1>Description</h1>
-                            <div className='description' dangerouslySetInnerHTML={{ __html: product.description }} />
+                            <h1>{product.brand}</h1>
+                            <div className='description' >{parse(product.description)}</div>
                             <br />
                             <div>
                                 {product.attributes.map(attribute => {
@@ -110,7 +111,7 @@ class ProductDetails extends Component {
                             <b>{this.getCurrency(product)}</b>
                             <br />
                             <br />
-                            <button onClick={() => this.props.addToBasket(this.state.product)}>ADD TO CART</button>
+                            <button onClick={() => this.props.addToBasket(this.state.product)} disabled={!product.inStock}>ADD TO CART</button>
                             <br />
                             <br />
                             <p>Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail

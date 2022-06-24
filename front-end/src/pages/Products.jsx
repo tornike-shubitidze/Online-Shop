@@ -24,11 +24,11 @@ class Products extends Component {
                     <span>OUT OF STOCK</span>
                 </div>
                 : ''}
-            <img src={product.gallery[0]} />
+            <img src={product.gallery[0]} alt="" />
             <div className='caption'>
                 <p>
                     {product.name}
-                    <span style={{ display: 'block', margin: '5px 0px' }}>{this.getCurrency(product)}</span>
+                    <span>{this.getCurrency(product)}</span>
                 </p>
             </div>
         </>
@@ -41,17 +41,16 @@ class Products extends Component {
                 <div className="products">
                     {this.props.products.products.map((product) => {
                         return <div className="product" key={product.id}>
-                            {product.inStock ?
-                                <div className='thumbnail'>
-                                    <Link
-                                        to={`/details/${product.id}`}>
-                                        {this.getHtmlDetails(product)}
-                                    </Link>
+                            <div className='thumbnail'>
+                                <Link
+                                    to={`/details/${product.id}`}>
+                                    {this.getHtmlDetails(product)}
+                                </Link>
+                                {product.inStock ?
                                     <button className='add-product-btn' onClick={() => this.props.addToBasket(product)} >
-                                        <img src={require("../imgs/basket-hover.png")} />
-                                    </button>
-                                </div> :
-                                this.getHtmlDetails(product)}
+                                        <img src={require("../imgs/basket-hover.png")} alt="" />
+                                    </button> : ""}
+                            </div>
                         </div>
                     })}
                 </div>

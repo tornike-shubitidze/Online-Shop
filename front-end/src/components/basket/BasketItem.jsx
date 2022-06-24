@@ -5,6 +5,25 @@ import ProductAttribute from '../ProductAttribute';
 
 class BasketItem extends Component {
 
+    state = {
+        counter: 0
+    }
+
+    increaseCounter = () => {
+        let counter = this.state.counter;
+        let length = this.props.product.gallery.length;
+        if (length > counter + 1) {
+            this.setState({ counter: counter + 1 })
+        }
+    }
+
+    decreaseCounter = () => {
+        let counter = this.state.counter;
+        if (counter > 0) {
+            this.setState({ counter: counter - 1 })
+        }
+    }
+
     getAmount = ({ prices }) => {
         const currentCurrency = this.props.currency.currencies.find(x => x.selected);
         const price = prices.find(x => x.currency.label === currentCurrency.label);
@@ -22,6 +41,8 @@ class BasketItem extends Component {
 
     render() {
         const { product, cssClass, canEdit } = this.props;
+        const { counter } = this.state;
+        console.log(this.state.counter);
 
         return (
             <>
@@ -48,8 +69,13 @@ class BasketItem extends Component {
                             <div className="plus-minus-square" onClick={() => this.props.onDecreaseQuantity(product)}>-</div>
                         </div>
                         <div className="cart-img">
-                            <img src={product.gallery[0]} />
+                            <img src={product.gallery[counter]} alt="" />
                         </div>
+                        {product.gallery.length > 1 ?
+                            <div className='arrows' >
+                                <span class="arrow" onClick={this.decreaseCounter}>&#8249;</span>
+                                <span class="arrow" onClick={this.increaseCounter}>&#8250;</span>
+                            </div> : ""}
                     </div>
                 </div>
                 <hr />

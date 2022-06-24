@@ -11,7 +11,7 @@ class Header extends Component {
             <>
                 <div className="header">
                     <Category />
-                    <img src={require("../../../src/imgs/logo.png")} />
+                    <img src={require("../../../src/imgs/logo.png")} alt="" />
                     <Currency />
                 </div>
             </>

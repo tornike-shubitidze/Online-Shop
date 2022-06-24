@@ -7,11 +7,12 @@ class Category extends Component {
 
     render() {
         const { initialized, categories } = this.props.category;
+        console.log(categories);
         return (
             <div className="category">
                 {initialized ?
                     categories.map((x, i) =>
-                        <Link to='/' key={i} className={x.selected ? 'category-active' : ''}>
+                        <Link to={`/${x.name}`} key={i} className={x.selected ? 'category-active' : ''}>
                             <span onClick={() => this.props.setCategory(x.name)}>
                                 {x.name.toUpperCase()}
                             </span>

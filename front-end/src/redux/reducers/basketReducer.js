@@ -1,5 +1,5 @@
 import { INCREASE_QUANTITY, ADD_TO_BASKET, DECREASE_QUANTITY } from "../actions";
-import { shallowEqual, makeId } from "../../utils";
+import { shallowEqual } from "../../utils";
 
 let basketReducer = (state = {
   products: []

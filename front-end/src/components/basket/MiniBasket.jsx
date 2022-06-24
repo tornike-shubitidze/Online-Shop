@@ -25,7 +25,7 @@ class MiniBasket extends Component {
             <>
                 <button className='basket-icon' data-toggle="modal" data-target="#exampleModal"
                     onClick={() => this.onAfterOpen()}>
-                    <img src={require("../../../src/imgs/basket.png")} />
+                    <img src={require("../../../src/imgs/basket.png")} alt="" />
                     {itemQuantity !== 0 ? <span className="badge ">{itemQuantity}</span> : ''}
                 </button>
 
@@ -38,7 +38,7 @@ class MiniBasket extends Component {
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-body">
-                                <span><b>My Bag:</b> {itemQuantity} </span><br /><br />
+                                <span><b>My Bag,</b> {itemQuantity} items</span><br /><br />
                                 {open ?
                                     this.props.basket.products.map(product => {
                                         return <BasketItem
@@ -50,7 +50,7 @@ class MiniBasket extends Component {
                                     : ''
                                 }
                                 <div className='basket-total' >
-                                    <span><b>Total</b> </span>
+                                    <span className='total'>Total </span>
                                     <span><b>{currency?.symbol ?? ''} {getTotalPrice(this.props.basket.products, currency)}</b></span>
                                 </div>
                                 <br />

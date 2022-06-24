@@ -38,6 +38,7 @@ h2 {
 }
 
 .category,
+.currency,
 .category-title,
 .product-specs,
 .product span,
@@ -52,7 +53,9 @@ h2 {
 .cart-item .price,
 .payment-info span,
 .modal-content,
-.basket-buttons button {
+.basket-buttons button,
+.out-of-stock,
+.description {
     font-family: 'Raleway';
 }
 
@@ -126,7 +129,7 @@ h2 {
     background-color: white;
     opacity: 0.5;
     color: gray;
-    font-size: 30px;
+    font-size: 24px;
     text-align: center;
 }
 
@@ -151,10 +154,6 @@ h2 {
     height: 400px;
 }
 
-.product span {
-    font-weight: 300;
-}
-
 .product b {
     font-weight: 500;
     font-size: 18px;
@@ -171,6 +170,11 @@ h2 {
 
 .caption p {
     margin: 0;
+}
+
+.caption p span {
+    margin: 5px 0;
+    display: block;
 }
 
 .add-product-btn {
@@ -228,6 +232,8 @@ h2 {
 .images img {
     width: 100%;
     padding-right: 2rem;
+    cursor: pointer;
+    margin-bottom: 15px;
 }
 
 .main-image img {
@@ -309,7 +315,6 @@ h2 {
 .item-amount {
     display: flex;
     position: relative;
-    /* width: 30%; */
     width: 293px;
 }
 
@@ -346,6 +351,7 @@ h2 {
 
 .attribute {
     display: flex;
+    font-family: 'Source Sans Pro', sans-serif;
 }
 
 .cart-img {
@@ -357,7 +363,6 @@ h2 {
 .cart-img img {
     width: 100%;
     align-self: center;
-    /* height: -webkit-fill-available; */
     object-fit: fill;
 }
 
@@ -371,6 +376,28 @@ h2 {
     font-weight: 700;
     font-size: 18px;
     text-transform: uppercase;
+}
+
+.arrows {
+    display: flex;
+    justify-content: space-between;
+    width: 56px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.arrow {
+    width: 24px;
+    position: relative;
+    font-size: xx-large;
+    background: rgba(0, 0, 0, 0.73);
+    color: white;
+    text-align: center;
+    line-height: 18px;
+    padding-bottom: 6px;
+    margin: 0;
+    cursor: pointer;
 }
 
 .payment-info {
@@ -390,7 +417,7 @@ h2 {
     color: #fff;
     cursor: pointer;
     border: none;
-    width: 200px;
+    width: 279px;
     margin-top: 10px;
 }
 
@@ -535,4 +562,13 @@ h2 {
 
 .mini-cart-item .cart-img img {
     object-fit: contain;
+}
+
+.mini-cart-item .arrows {
+    display: none;
+}
+
+.basket-total .total {
+    font-family: 'Roboto Condensed';
+    font-weight: 600;
 }
