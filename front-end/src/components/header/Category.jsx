@@ -7,7 +7,7 @@ class Category extends Component {
 
     render() {
         const { initialized, categories } = this.props.category;
-        console.log(categories);
+
         return (
             <div className="category">
                 {initialized ?

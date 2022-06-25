@@ -42,6 +42,14 @@ export const GET_CURRENCIES = gql`
   }
 `;
 
+export const GET_CATEGORIES = gql`
+{
+  categories{
+  name   
+  }
+}
+`;
+
 export function getProductById(id) {
   return gql`
   {
@@ -72,4 +80,39 @@ export function getProductById(id) {
     }
   }
 `;
+}
+
+
+export function getCategoryByName(name) {
+  return gql`
+  {
+    category(input: {title:"${name}"}){
+      name
+      products {
+        id
+        name
+        inStock
+        gallery
+        description
+        attributes {
+          id
+          name
+          type
+          items {
+            displayValue
+            value
+            id
+          }
+        }
+        prices {
+          currency {
+            label
+            symbol
+          }
+          amount
+        }
+        brand
+      }      
+    }   
+  }`
 }

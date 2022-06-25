@@ -56,21 +56,8 @@ class ProductDetails extends Component {
         </b>
     }
 
-    onAttributeStateChange = (attribute) => {
-        const product = this.state.product;
-        const attributes = product.attributes;
-
-        let currentAttribute = attributes.find(x => x.id === attribute.id);
-        currentAttribute = attribute;
-
-        this.setState({
-            product
-        })
-    }
-
     render() {
         const { product } = this.state;
-        console.log(product);
 
         return (
             <>
@@ -100,8 +87,7 @@ class ProductDetails extends Component {
                                             key={attribute.id}
                                             attribute={attribute}
                                             cssClass={'attribute-box'}
-                                            canEdit={true}
-                                            onAttributeChange={(attribute) => this.onAttributeStateChange(attribute)} />
+                                            canEdit={true} />
                                     )
                                 })}
                             </div>

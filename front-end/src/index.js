@@ -11,9 +11,10 @@ import { initialize } from './redux/actions';
 const store = createStore(reducers, middlewares);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href')
+const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 
-store.dispatch(initialize());
+
+store.dispatch(initialize("some payload"));
 
 root.render(
   <Provider store={store}>

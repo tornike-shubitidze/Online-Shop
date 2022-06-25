@@ -31,18 +31,10 @@ class BasketItem extends Component {
         return `${price.currency.symbol} ${price.amount}`;
     }
 
-    onAttributeStateChange = (product, attribute) => {
-        if (this.props.canEdit === true) {
-            const attributes = product.attributes;
-            let currentAttribute = attributes.find(x => x.id === attribute.id);
-            currentAttribute = attribute;
-        }
-    }
 
     render() {
         const { product, cssClass, canEdit } = this.props;
         const { counter } = this.state;
-        console.log(this.state.counter);
 
         return (
             <>
@@ -58,7 +50,7 @@ class BasketItem extends Component {
                                     key={attribute.id}
                                     attribute={attribute}
                                     canEdit={canEdit}
-                                    onAttributeChange={(attribute) => this.onAttributeStateChange(product, attribute)} />
+                                />
                             })}
                         </div>
                     </div>

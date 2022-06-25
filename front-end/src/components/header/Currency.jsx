@@ -7,6 +7,8 @@ class Currency extends Component {
 
     render() {
         const currencies = this.props.currency?.currencies;
+        // let selectedCurrency = this.props.currency?.currencies.find(x => x.selected);
+
 
         return (
             <div className="cart-currency">

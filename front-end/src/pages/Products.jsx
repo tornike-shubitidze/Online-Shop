@@ -15,8 +15,6 @@ class Products extends Component {
         </b>
     }
 
-    getCategoryName = () => this.props.category.categories.find(item => item.selected)?.name.toUpperCase() ?? '';
-
     getHtmlDetails = (product) => {
         return <>
             {!product.inStock ?
@@ -37,7 +35,7 @@ class Products extends Component {
     render() {
         return (
             <>
-                <h1 className="category-title">{this.getCategoryName()}</h1>
+                <h1 className="category-title">{this.props.category.categories.find(item => item.selected)?.name.toUpperCase() ?? ''}</h1>
                 <div className="products">
                     {this.props.products.products.map((product) => {
                         return <div className="product" key={product.id}>

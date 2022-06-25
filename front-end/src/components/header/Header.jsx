@@ -7,6 +7,7 @@ import { loadCategories } from '../../redux/actions'
 class Header extends Component {
 
     render() {
+        console.log("this.props.match:", this.props.match);
         return (
             <>
                 <div className="header">
