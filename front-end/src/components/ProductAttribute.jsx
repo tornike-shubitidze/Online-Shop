@@ -30,7 +30,7 @@ class ProductAttribute extends Component {
         const { attribute } = this.state;
         return (
             <div >
-                <b>{attribute.name}</b>
+                <b>{attribute.name + ":"}</b>
                 <br />
                 <div className="attribute">
                     {attribute.items.map((item, i) => {

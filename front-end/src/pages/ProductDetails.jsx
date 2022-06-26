@@ -76,8 +76,8 @@ class ProductDetails extends Component {
                             <img src={`${this.state.mainImg}`} alt="" />
                         </div>
                         <div className="product-info">
-                            <h2>{product.name}</h2>
-                            <h1>{product.brand}</h1>
+                            <h2>{product.brand}</h2>
+                            <h1>{product.name}</h1>
                             <div className='description' >{parse(product.description)}</div>
                             <br />
                             <div>

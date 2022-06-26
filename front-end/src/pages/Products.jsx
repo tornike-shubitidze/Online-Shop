@@ -25,7 +25,7 @@ class Products extends Component {
             <img src={product.gallery[0]} alt="" />
             <div className='caption'>
                 <p>
-                    {product.name}
+                    {product.brand + " " + product.name}
                     <span>{this.getCurrency(product)}</span>
                 </p>
             </div>
