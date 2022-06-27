@@ -10,7 +10,7 @@ let currencyReducer = (state = {
       };
     case SET_CURRENCY:
       let newState = state.currencies.map(x => {
-        x.label === action.payload ? x.selected = true : x.selected = false;
+        x.symbol === action.payload ? x.selected = true : x.selected = false;
         return x;
       })
       return { currencies: newState };

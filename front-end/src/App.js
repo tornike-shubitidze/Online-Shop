@@ -12,13 +12,13 @@ class App extends Component {
     return (
       <Layout>
         <Switch>
-          <Route exact path="/" render={() => <Products />} />
-          <Route exact path="/all" render={() => <Products />} />
-          <Route exact path="/clothes" render={() => <Products />} />
-          <Route exact path="/tech" render={() => <Products />} />
-          <Route exact path="/details/:id" render={() => <ProductDetails />} />
-          <Route exact path="/basket" render={() => <Basket />} />
-          <Route exact path="*" render={() => ErrorPage} />
+          <Route exact path="/" render={(props) => <Products {...props} />} />
+          <Route exact path="/all" render={(props) => <Products {...props} />} />
+          <Route exact path="/clothes" render={(props) => <Products {...props} />} />
+          <Route exact path="/tech" render={(props) => <Products {...props} />} />
+          <Route exact path="/details/:id" render={(props) => <ProductDetails {...props} />} />
+          <Route exact path="/basket" render={(props) => <Basket {...props} />} />
+          <Route exact path="*" render={(props) => <ErrorPage {...props} />} />
         </Switch>
       </Layout>
     );
