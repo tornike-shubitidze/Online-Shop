@@ -49,7 +49,9 @@ a {
 .modal-content,
 .basket-buttons button,
 .out-of-stock,
-.description {
+.description,
+.caret,
+.dropdown-content {
     font-family: 'Raleway';
 }
 
@@ -92,6 +94,61 @@ a {
     border: none;
     outline: none;
 }
+
+/* Currency Switcher start */
+
+.dropbtn {
+    color: var(--black);
+    background-color: #FFFFFF;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    width: 38px;
+}
+
+.caret {
+    position: relative;
+    top: 6px;
+}
+
+.down {
+    transform: rotate(180deg);
+    top: 0px;
+}
+
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    left: -20px;
+    min-width: 114px;
+    font-size: 18px;
+    z-index: 111;
+}
+
+.dropdown-content span {
+    color: var(--black);
+    padding: 8px 0 8px 20px;
+    display: block;
+}
+
+.dropdown-content span:first-child {
+    margin-top: 10px;
+}
+
+.dropdown span:hover {
+    background-color: #EEEEEE;
+}
+
+.show {
+    display: block;
+}
+
+/* Currency Switcher ends */
 
 .cart-currency {
     align-items: center;
