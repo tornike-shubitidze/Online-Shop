@@ -10,6 +10,13 @@ class MiniBasket extends Component {
         open: false
     }
 
+    componentDidUpdate(prevProps, prevState) {
+        console.log('prevProps = CurrentProps:', JSON.stringify(prevProps) === JSON.stringify(this.props));
+        // console.log('CurrentProps:', this.props);
+        // console.log('currentState:', this.state.open);
+        // console.log('prevState:', prevState.open);
+    }
+
     onAfterOpen = () => {
         document.body.style.overflow = this.state.open ? 'unset' : 'hidden';
         this.setState({ open: !this.state.open })
@@ -30,7 +37,7 @@ class MiniBasket extends Component {
                 </button>
 
                 <div className={`modal minibasket`}
-                    style={open ? { display: 'block' } : { display: 'none' }}
+                    style={{ display: open ? 'block' : 'none' }}
                     id="exampleModal"
                     tabIndex="-1" role="dialog"
                     aria-labelledby="exampleModalLabel"
@@ -38,7 +45,7 @@ class MiniBasket extends Component {
                     <div className="modal-dialog" role="document">
                         <div className="modal-content">
                             <div className="modal-body">
-                                <span><b>My Bag,</b> {itemQuantity} items</span><br /><br />
+                                <span><b>My Bag,</b> {itemQuantity} items</span>
                                 {open ?
                                     this.props.basket.products.map(product => {
                                         return <BasketItem
@@ -53,7 +60,7 @@ class MiniBasket extends Component {
                                     <span className='total'>Total </span>
                                     <span><b>{currency?.symbol ?? ''} {getTotalPrice(this.props.basket.products, currency)}</b></span>
                                 </div>
-                                <br />
+
                                 <div className='basket-buttons' >
                                     <Link to='/basket' onClick={this.onAfterOpen}>
                                         <button > VIEW BAG</button>
@@ -68,7 +75,7 @@ class MiniBasket extends Component {
                 </div>
 
                 <div className="modal-backdrop" onClick={() => this.onAfterOpen()}
-                    style={open ? { display: 'block' } : { display: 'none' }}>
+                    style={{ display: open ? 'block' : 'none' }}>
                 </div>
             </>
         );

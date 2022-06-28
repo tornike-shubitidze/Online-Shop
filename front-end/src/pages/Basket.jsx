@@ -10,7 +10,7 @@ class Basket extends Component {
         const totalPrice = getTotalPrice(this.props.basket.products, currency) ?? 0;
 
         return (<div className="cart">
-            <h1>CART</h1>
+            <p>CART</p>
             <hr />
             {this.props.basket.products.map(product => {
                 return <BasketItem product={product} cssClass={'cart-item'} canEdit={false} />

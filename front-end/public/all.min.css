@@ -52,7 +52,8 @@ a {
 .caret,
 .dropdown-content,
 .arrows,
-.quantity-square {
+.quantity-square,
+.cart p {
     font-family: 'Raleway';
 }
 
@@ -285,14 +286,14 @@ a {
 .images {
     width: 10%;
     display: block;
-    margin-right: 5px;
+    margin-right: 10px;
 }
 
 .images img {
     width: 100%;
     padding-right: 30px;
     cursor: pointer;
-    margin-bottom: 30px;
+    margin-bottom: 32px;
 }
 
 .main-image img {
@@ -305,7 +306,7 @@ a {
 
 .product-info {
     width: 20%;
-    margin-left: 120px;
+    margin-left: 100px;
 }
 
 .product-info h2,
@@ -321,6 +322,10 @@ a {
 .cart-item h1,
 .cart-item h2 {
     white-space: nowrap;
+}
+
+.cart hr {
+    margin: 24px 0px;
 }
 
 .product-info h1,
@@ -376,6 +381,11 @@ a {
 }
 
 /* CART page */
+.cart p {
+    margin: 55px 0px;
+    font-size: 32px;
+    font-weight: 700;
+}
 
 .item-amount {
     display: flex;
@@ -422,7 +432,7 @@ a {
 
 .cart-img {
     width: 100%;
-    margin-left: 5%;
+    margin-left: 4%;
     display: inline-flex;
 }
 
@@ -579,6 +589,10 @@ a {
     text-align: center;
 }
 
+.mini-cart-item {
+    margin-top: 40px;
+}
+
 .mini-cart-item .item-info {
     width: 48%;
 }
@@ -639,6 +653,10 @@ a {
 
 .mini-cart-item .arrows {
     display: none;
+}
+
+.basket-total {
+    margin: 32px 0px;
 }
 
 .basket-total .total {

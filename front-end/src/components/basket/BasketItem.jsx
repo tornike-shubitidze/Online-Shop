@@ -33,7 +33,7 @@ class BasketItem extends Component {
 
 
     render() {
-        const { product, cssClass, canEdit } = this.props;
+        let { product, cssClass, canEdit } = this.props;
         const { counter } = this.state;
 
         return (
@@ -65,12 +65,12 @@ class BasketItem extends Component {
                         </div>
                         {product.gallery.length > 1 ?
                             <div className='arrows' >
-                                <span class="arrow" onClick={this.decreaseCounter}>&#8249;</span>
-                                <span class="arrow" onClick={this.increaseCounter}>&#8250;</span>
+                                <span className="arrow" onClick={this.decreaseCounter}>&#8249;</span>
+                                <span className="arrow" onClick={this.increaseCounter}>&#8250;</span>
                             </div> : ""}
                     </div>
                 </div>
-                <hr />
+                {cssClass === 'mini-cart-item' ? '' : <hr />}
             </>
         );
     }
