@@ -6,15 +6,23 @@ import { getTotalPrice, getProductsQuantity } from '../../utils';
 
 class MiniBasket extends Component {
 
-    state = {
-        open: false
+    constructor(props) {
+        super(props);
+        this.state = {
+            open: false
+        }
+        this.ref = React.createRef();
+        this.handleClickOutside = this.handleClickOutside.bind(this);
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log('prevProps = CurrentProps:', JSON.stringify(prevProps) === JSON.stringify(this.props));
-        // console.log('CurrentProps:', this.props);
-        // console.log('currentState:', this.state.open);
-        // console.log('prevState:', prevState.open);
+    handleClickOutside(event) {
+        if (this.state.open && !this.ref.current.contains(event.target)) {
+            this.onAfterOpen()
+        }
+    };
+
+    componentDidMount() {
+        document.addEventListener('click', this.handleClickOutside, true);
     }
 
     onAfterOpen = () => {
@@ -29,7 +37,7 @@ class MiniBasket extends Component {
         const currency = this.props.currency.currencies.find(item => item.selected);
 
         return (
-            <>
+            <div ref={this.ref}>
                 <button className='basket-icon' data-toggle="modal" data-target="#exampleModal"
                     onClick={() => this.onAfterOpen()}>
                     <img src={require("../../../src/imgs/basket.png")} alt="" />
@@ -77,7 +85,7 @@ class MiniBasket extends Component {
                 <div className="modal-backdrop" onClick={() => this.onAfterOpen()}
                     style={{ display: open ? 'block' : 'none' }}>
                 </div>
-            </>
+            </div>
         );
     }
 }
