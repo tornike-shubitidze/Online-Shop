@@ -129,7 +129,7 @@ a {
     left: -20px;
     min-width: 114px;
     font-size: 18px;
-    z-index: 111;
+    box-shadow: 0px 4px 35px rgb(168 172 176 / 19%);
 }
 
 .dropdown-content span {
@@ -171,8 +171,8 @@ a {
 
 .products {
     display: grid;
-    grid-template-columns: auto auto auto;
-    grid-gap: 2rem;
+    grid-template-columns: 30% 30% 30%;
+    grid-gap: 103px 5%;
     margin-top: 103px;
 }
 
@@ -183,7 +183,7 @@ a {
     z-index: 1;
     background-color: white;
     opacity: 0.5;
-    color: gray;
+    color: #8D8F9A;
     font-size: 24px;
     text-align: center;
 }
@@ -205,8 +205,8 @@ a {
 
 .product img {
     width: 100%;
-    object-fit: contain;
-    height: 400px;
+    /* object-fit: cover; */
+    height: 500px;
 }
 
 .product b {
@@ -216,7 +216,7 @@ a {
 
 .caption {
     position: relative;
-    padding: 9px;
+    padding: 24px 0 0 0;
     color: #333;
     font-weight: 300;
     font-size: 18px;
@@ -242,7 +242,7 @@ a {
     padding: 4px 11px;
     align-items: center;
     position: absolute;
-    bottom: 16%;
+    bottom: 14%;
     right: 10%;
     cursor: pointer;
 }
@@ -262,19 +262,20 @@ a {
 
 .thumbnail {
     line-height: 1;
-    background-color: #fff;
+    background-color: #FFFFFF;
+    height: 100%;
 }
 
 .thumbnail:hover {
-    box-shadow: 0px 0px 15px 15px rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 20%);
+    box-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19);
 }
 
 .thumbnail:hover a img {
-    padding: 20px;
+    padding: 16px;
 }
 
 .thumbnail:hover .caption {
-    padding: 0 0 15px 25px;
+    padding: 0 0 16px 16px;
 }
 
 /* PDP page */

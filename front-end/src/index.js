@@ -13,8 +13,7 @@ const store = createStore(reducers, middlewares);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');
 
-
-store.dispatch(initialize("some payload"));
+store.dispatch(initialize(window.location.pathname.slice(1)));
 
 root.render(
   <Provider store={store}>
