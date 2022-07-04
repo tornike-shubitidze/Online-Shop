@@ -17,9 +17,6 @@ class App extends Component {
           <Route exact path="/basket" render={(props) => <Basket {...props} />} />
           <Route exact path="/details/:id" render={(props) => <ProductDetails {...props} />} />
           <Route exact path="/:id" render={(props) => <Products {...props} />} />
-          {/* <Route path="/all" render={(props) => <Products {...props} />} />
-          <Route path="/clothes" render={(props) => <Products {...props} />} />
-          <Route path="/tech" render={(props) => <Products {...props} />} /> */}
           <Route exact path="*" render={(props) => <ErrorPage {...props} />} />
         </Switch>
       </Layout>

@@ -5,11 +5,11 @@ import { GET_CURRENCIES, GET_CATEGORIES, getCategoryByName } from "../../GraphQL
 import { addActivePropertyToAttributes } from "../../utils";
 
 export const categoryMiddleware = (store) => (next) => (action) => {
-    let { payload } = action
-    let categoryName = payload.includes('all') || payload.includes('tech') || payload.includes('clothes') ? payload : 'all';
 
     switch (action.type) {
         case INITIALIZE:
+            let { payload } = action
+            let categoryName = payload.includes('all') || payload.includes('tech') || payload.includes('clothes') ? payload : 'all';
             const categoryCall = request(API_URL, GET_CATEGORIES);
             const currencyCall = request(API_URL, GET_CURRENCIES);
             const productsCall = request(API_URL, getCategoryByName(categoryName));

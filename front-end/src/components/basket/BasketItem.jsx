@@ -38,7 +38,7 @@ class BasketItem extends Component {
 
         return (
             <>
-                <div className={cssClass} key={product.uuid}>
+                <div className={cssClass}>
                     <div className='item-info'>
                         <h2>{product.brand}</h2>
                         <h1>{product.name}</h1>

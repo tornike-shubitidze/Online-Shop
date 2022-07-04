@@ -8,8 +8,9 @@ let basketReducer = (state = {
 
   switch (action.type) {
     case ADD_TO_BASKET:
+      const newItem = JSON.parse(JSON.stringify(action.payload));
       const sameProduct = products.find(x => {
-        return shallowEqual(x, action.payload)
+        return shallowEqual(x, newItem)
       }) ?? {};
 
       if (Object.keys(sameProduct).length !== 0) {
@@ -19,7 +20,7 @@ let basketReducer = (state = {
           products: products
         };
       } else {
-        let product = action.payload;
+        let product = newItem;
         product.quantity = 1;
         products.push(product);
 
@@ -39,16 +40,18 @@ let basketReducer = (state = {
       };
 
     case DECREASE_QUANTITY:
-      const decreaseProduct = products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));
-      const productsQuantityIsMoreThanOne = decreaseProduct.quantity > 1;
+      const payload = JSON.stringify(action.payload);
+      const decreaseProduct = products.find(x => JSON.stringify(x) === payload);
 
-      if (productsQuantityIsMoreThanOne) {
+      const quantityIsMoreThanOne = decreaseProduct.quantity > 1;
+
+      if (quantityIsMoreThanOne) {
         decreaseProduct.quantity = decreaseProduct.quantity - 1;
       }
 
       return {
         ...state,
-        products: !productsQuantityIsMoreThanOne ? products.filter(x => JSON.stringify(x) !== JSON.stringify(action.payload)) : products
+        products: !quantityIsMoreThanOne ? products.filter(x => JSON.stringify(x) !== payload) : products
       };
 
     default:

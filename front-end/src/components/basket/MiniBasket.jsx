@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { Link } from 'react-router-dom';
 import BasketItem from './BasketItem';
-import { getTotalPrice, getProductsQuantity } from '../../utils';
+import { getTotalPrice, getProductsQuantity, makeId } from '../../utils';
 
 class MiniBasket extends Component {
 
@@ -58,7 +58,7 @@ class MiniBasket extends Component {
                                     this.props.basket.products.map(product => {
                                         return <BasketItem
                                             product={product}
-                                            key={product.id}
+                                            key={makeId()}
                                             canEdit={false}
                                             cssClass={'mini-cart-item'} />
                                     })
@@ -97,9 +97,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-const mapDispatchToProps = () => {
-    return {
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps())(MiniBasket);
+export default connect(mapStateToProps)(MiniBasket);
