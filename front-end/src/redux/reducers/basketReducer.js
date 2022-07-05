@@ -4,7 +4,7 @@ import { shallowEqual } from "../../utils";
 let basketReducer = (state = {
   products: []
 }, action) => {
-  const products = state.products;
+  let products = state.products;
 
   switch (action.type) {
     case ADD_TO_BASKET:
@@ -31,6 +31,7 @@ let basketReducer = (state = {
       }
 
     case INCREASE_QUANTITY:
+
       const increaseProduct = products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));
       increaseProduct.quantity = increaseProduct.quantity + 1;
 
@@ -40,18 +41,18 @@ let basketReducer = (state = {
       };
 
     case DECREASE_QUANTITY:
-      const payload = JSON.stringify(action.payload);
-      const decreaseProduct = products.find(x => JSON.stringify(x) === payload);
-
+      const decreaseProduct = products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));
       const quantityIsMoreThanOne = decreaseProduct.quantity > 1;
 
       if (quantityIsMoreThanOne) {
         decreaseProduct.quantity = decreaseProduct.quantity - 1;
+      } else {
+        products = products.filter(x => JSON.stringify(x) !== JSON.stringify(action.payload))
       }
 
       return {
         ...state,
-        products: !quantityIsMoreThanOne ? products.filter(x => JSON.stringify(x) !== payload) : products
+        products: products
       };
 
     default:

@@ -50,6 +50,7 @@ class BasketItem extends Component {
                                     key={attribute.id}
                                     attribute={attribute}
                                     canEdit={canEdit}
+                                    cssClass={cssClass}
                                 />
                             })}
                         </div>

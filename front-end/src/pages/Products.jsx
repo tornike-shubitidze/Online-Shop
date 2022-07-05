@@ -61,7 +61,6 @@ const mapStateToProps = (state) => {
         category: state.category,
         products: state.products,
         currencies: state.currency,
-        basket: state.basket
     };
 };
 

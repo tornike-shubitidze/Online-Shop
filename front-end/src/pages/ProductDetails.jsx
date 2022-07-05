@@ -112,10 +112,7 @@ class ProductDetails extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        category: state.category,
-        products: state.products,
         currencies: state.currency,
-        basket: state.basket
     };
 };
 

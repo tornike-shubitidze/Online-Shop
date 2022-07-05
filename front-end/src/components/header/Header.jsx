@@ -1,13 +1,9 @@
 import React, { Component } from 'react';
 import Currency from './Currency';
 import Category from './Category';
-import { connect } from "react-redux";
-import { loadCategories } from '../../redux/actions'
-
 class Header extends Component {
 
     render() {
-
         return (
             <>
                 <div className="header">
@@ -20,17 +16,5 @@ class Header extends Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-        category: state.category
-    };
-};
-
-const mapDispatchToProps = () => {
-    return {
-        loadCategories
-    };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps())(Header);
+export default Header;
 
