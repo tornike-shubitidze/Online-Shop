@@ -1,23 +1,25 @@
-import { INITIALIZE, SET_CATEGORY } from "../actions";
+// import { INITIALIZE, SET_CATEGORY } from "../actions";
+import { createSlice } from "@reduxjs/toolkit";
 
-let productsReducer = (state = {
-  products: []
-}, action) => {
-  switch (action.type) {
-    case INITIALIZE:
+let productsReducer = createSlice({
+  name: 'products',
+  initialState: [],
+  reducers: {
+    initialize(state, action) {
       return {
         ...state,
         products: action.payload.products,
       };
-
-    case SET_CATEGORY:
+    },
+    setCategory(state, action) {
       return {
         ...state,
         products: action.payload.products,
       };
-    default:
-      return state;
+    }
   }
-};
+});
+
+export const { initialize, setCategory } = productsReducer.actions
 
 export default productsReducer;

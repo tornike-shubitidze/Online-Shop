@@ -1,23 +1,26 @@
-import { INITIALIZE, SET_CURRENCY } from "../actions";
+// import { INITIALIZE, SET_CURRENCY } from "../actions";
+import { createSlice } from "@reduxjs/toolkit";
 
-let currencyReducer = (state = {
-  currencies: []
-}, action) => {
-  switch (action.type) {
-    case INITIALIZE:
+
+let currencyReducer = createSlice({
+  name: 'currencies',
+  initialState: [],
+  reducers: {
+    initialize(state, action) {
       return {
         currencies: action.payload.currencies,
       };
-    case SET_CURRENCY:
-      let newState = state.currencies.map(x => {
-        x.symbol === action.payload ? x.selected = true : x.selected = false;
-        return x;
-      })
-      return { currencies: newState };
-
-    default:
-      return state;
+    }
+  },
+  setCurrency(state, action) {
+    let newState = state.currencies.map(x => {
+      x.symbol === action.payload ? x.selected = true : x.selected = false;
+      return x;
+    })
+    return { currencies: newState };
   }
-};
+});
+
+export const { initialize, setCurrency } = currencyReducer.actions
 
 export default currencyReducer;

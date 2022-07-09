@@ -1,28 +1,27 @@
-import { INITIALIZE, SET_CATEGORY } from "../actions";
+import { createSlice } from "@reduxjs/toolkit";
+// import { INITIALIZE, SET_CATEGORY } from "../actions";
 
-let categoryReducer = (state = {
+
+let categoryReducer = createSlice({
   initialized: false,
-  categories: [],
-}, action) => {
-  switch (action.type) {
-    case INITIALIZE:
+  name: "categories",
+  initialState: [],
+  reducers: {
+    initialize(state, action) {
       return {
         initialized: true,
         categories: action.payload.categories,
-      };
-    case SET_CATEGORY:
-      const result = state.categories.map(x => {
+      }
+    },
+    setCategory(state, action) {
+      state.categories.map(x => {
         x.name === action.payload.categoryName ? x.selected = true : x.selected = false;
         return x;
       });
-
-      return {
-        ...state,
-        categories: result
-      };
-    default:
-      return state;
+    }
   }
-};
+});
+
+export const { initialize, setCategory } = categoryReducer.actions
 
 export default categoryReducer;
