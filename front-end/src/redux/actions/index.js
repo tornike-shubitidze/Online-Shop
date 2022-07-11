@@ -10,37 +10,37 @@
 // export const DECREASE_QUANTITY = "DECREASE_QUANTITY";
 
 // export function initialize(value) {
-//   return { type: INITIALIZE, payload: value };
+//     return { type: INITIALIZE, payload: value };
 // }
 
 // export function loadCategories() {
-//   return { type: LOAD_CATEGORIES };
+//     return { type: LOAD_CATEGORIES };
 // }
 
 // export function setCategory(value) {
-//   return { type: SET_CATEGORY, payload: value };
+//     return { type: SET_CATEGORY, payload: value };
 // }
 
 // export function getProducts() {
-//   return { type: GET_PRODUCTS };
+//     return { type: GET_PRODUCTS };
 // }
 
 // export function loadCurrencies() {
-//   return { type: LOAD_CURRENCIES };
+//     return { type: LOAD_CURRENCIES };
 // }
 
 // export function setCurrency(value) {
-//   return { type: SET_CURRENCY, payload: value };
+//     return { type: SET_CURRENCY, payload: value };
 // }
 
 // export function addToBasket(value) {
-//   return { type: ADD_TO_BASKET, payload: value };
+//     return { type: ADD_TO_BASKET, payload: value };
 // }
 
 // export function onIncreaseQuantity(value) {
-//   return { type: INCREASE_QUANTITY, payload: value };
+//     return { type: INCREASE_QUANTITY, payload: value };
 // }
 
 // export function onDecreaseQuantity(value) {
-//   return { type: DECREASE_QUANTITY, payload: value };
+//     return { type: DECREASE_QUANTITY, payload: value };
 // }

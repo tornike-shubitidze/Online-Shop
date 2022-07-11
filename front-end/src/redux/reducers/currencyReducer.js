@@ -23,4 +23,4 @@ let currencyReducer = createSlice({
 
 export const { initialize, setCurrency } = currencyReducer.actions
 
-export default currencyReducer;
+export default currencyReducer.reducer;

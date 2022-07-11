@@ -3,8 +3,10 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { Provider } from "react-redux";
-import { initialize } from './redux/actions';
+// import { initialize } from './redux/actions';
 import { store } from './redux/reducers';
+import categoryReducer from './redux/reducers/categoryReducer';
+import { initialize } from './redux/reducers/categoryReducer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const baseUrl = document.getElementsByTagName('base')[0].getAttribute('href');

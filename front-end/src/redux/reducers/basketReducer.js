@@ -4,7 +4,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { shallowEqual } from "../../utils";
 
 let basketReducer = createSlice({
-  name: 'products',
+  name: 'basket',
   initialState: [],
   reducers: {
     addToBasket(state, action) {
@@ -66,4 +66,4 @@ let basketReducer = createSlice({
 
 export const { addToBasket, onIncreaseQuantity, onDecreaseQuantity } = basketReducer.actions
 
-export default basketReducer;
+export default basketReducer.reducer;

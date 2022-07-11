@@ -12,6 +12,5 @@ export const store = configureStore({
     currency: currencyReducer,
     products: productsReducer,
     basket: basketReducer
-  },
-  middleware: [applyMiddleware(middlewares)]
+  }
 });

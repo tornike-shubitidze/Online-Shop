@@ -22,4 +22,4 @@ let productsReducer = createSlice({
 
 export const { initialize, setCategory } = productsReducer.actions
 
-export default productsReducer;
+export default productsReducer.reducer;
