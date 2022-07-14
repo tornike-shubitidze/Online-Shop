@@ -1,9 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import { INITIALIZE, SET_CATEGORY } from "../actions";
 
 
 let categoryReducer = createSlice({
-
   name: "categories",
   initialState: {
     initialized: false,
@@ -13,16 +11,15 @@ let categoryReducer = createSlice({
     initialize(state, action) {
       return {
         initialized: true,
-        categories: action.payload.categories
+        categories: action.payload.categories,
       }
-
+    },
+    setCategory(state, action) {
+      state.categories.map(x => {
+        x.name === action.payload.categoryName ? x.selected = true : x.selected = false;
+        return x;
+      });
     }
-  },
-  setCategory(state, action) {
-    state.categories.map(x => {
-      x.name === action.payload.categoryName ? x.selected = true : x.selected = false;
-      return x;
-    });
   }
 });
 

@@ -4,20 +4,21 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let currencyReducer = createSlice({
   name: 'currencies',
-  initialState: [],
+  initialState: {
+    currencies: []
+  },
   reducers: {
     initialize(state, action) {
       return {
         currencies: action.payload.currencies,
       };
+    },
+    setCurrency(state, action) {
+      state.currencies.map(x => {
+        x.symbol === action.payload ? x.selected = true : x.selected = false;
+        return x;
+      })
     }
-  },
-  setCurrency(state, action) {
-    let newState = state.currencies.map(x => {
-      x.symbol === action.payload ? x.selected = true : x.selected = false;
-      return x;
-    })
-    return { currencies: newState };
   }
 });
 

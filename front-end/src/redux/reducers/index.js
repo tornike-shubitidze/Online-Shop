@@ -2,8 +2,9 @@ import categoryReducer from "./categoryReducer";
 import currencyReducer from "./currencyReducer";
 import productsReducer from "./productsReducer";
 import basketReducer from "./basketReducer";
-import { configureStore, applyMiddleware } from "@reduxjs/toolkit";
-import middlewares from "../middlewares";
+import { configureStore } from "@reduxjs/toolkit";
+import { categoryMiddleware } from "./../middlewares/categoryMiddlware";
+import { productsMiddleware } from "./../middlewares/productsMiddlware";
 
 
 export const store = configureStore({
@@ -12,5 +13,6 @@ export const store = configureStore({
     currency: currencyReducer,
     products: productsReducer,
     basket: basketReducer
-  }
+  },
+  middleware: [categoryMiddleware, productsMiddleware]
 });

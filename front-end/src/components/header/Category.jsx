@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { setCategory } from '../../redux/actions';
+import { setCategory } from '../../redux/reducers/categoryReducer';
 import { Link } from "react-router-dom";
 
 class Category extends Component {
 
     render() {
-        console.log(this.props);
         const { initialized, categories } = this.props.category;
+        console.log(this.props);
 
         return (
             <div className="category">

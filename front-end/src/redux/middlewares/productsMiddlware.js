@@ -1,12 +1,13 @@
 import { request } from "graphql-request";
-import { SET_CATEGORY } from "../actions";
 import { API_URL } from "../../GraphQL/settings";
 import { getCategoryByName } from "../../GraphQL/Queries";
 import { addActivePropertyToAttributes } from "../../utils";
+import { setProducts } from "../reducers/productsReducer";
 
 export const productsMiddleware = (store) => (next) => (action) => {
+    console.log('productsMiddleware came in:', action);
     switch (action.type) {
-        case SET_CATEGORY:
+        case 'categories/setCategory':
             request(API_URL, getCategoryByName(action.payload))
                 .then((res) => {
                     let selectedProducts = res.category.products;
@@ -15,6 +16,7 @@ export const productsMiddleware = (store) => (next) => (action) => {
                         products: addActivePropertyToAttributes(selectedProducts),
                         categoryName: categoryName
                     };
+                    store.dispatch(setProducts(action.payload))
                     next(action);
                 });
             break;

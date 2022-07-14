@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import parse from 'html-react-parser';
-import { addToBasket } from '../redux/actions';
+import { addToBasket } from '../redux/reducers/basketReducer';
 import { connect } from "react-redux";
 import { API_URL } from "../GraphQL/settings";
 import { getProductById } from "../GraphQL/Queries";

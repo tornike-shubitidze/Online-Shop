@@ -1,17 +1,15 @@
-// import { INCREASE_QUANTITY, ADD_TO_BASKET, DECREASE_QUANTITY } from "../actions";
 import { createSlice } from "@reduxjs/toolkit";
-
 import { shallowEqual } from "../../utils";
 
 let basketReducer = createSlice({
   name: 'basket',
-  initialState: [],
+  initialState: { products: [] },
   reducers: {
     addToBasket(state, action) {
-      let products = state.products;
+      // let products = state.products;
 
       const newItem = JSON.parse(JSON.stringify(action.payload));
-      const sameProduct = products.find(x => {
+      const sameProduct = state.products.find(x => {
         return shallowEqual(x, newItem)
       }) ?? {};
 
@@ -19,17 +17,17 @@ let basketReducer = createSlice({
         sameProduct.quantity = sameProduct.quantity + 1;
         return {
           ...state,
-          products: products
+          products: sameProduct
         };
       } else {
         let product = newItem;
         product.quantity = 1;
-        products.push(product);
+        state.products.push(product);
 
-        return {
-          ...state,
-          products: products
-        };
+        // return {
+        //   ...state,
+        //   products: products
+        // };
       }
     },
     onIncreaseQuantity(state, action) {

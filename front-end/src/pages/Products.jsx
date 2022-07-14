@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { addToBasket } from '../redux/actions';
+import { addToBasket } from '../redux/reducers/basketReducer';
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 

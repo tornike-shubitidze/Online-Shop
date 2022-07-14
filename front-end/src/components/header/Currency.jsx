@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import MiniBasket from '../basket/MiniBasket';
 import { connect } from "react-redux";
-import { setCategory, setCurrency } from '../../redux/actions';
+import { setCategory } from '../../redux/reducers/categoryReducer';
+import { setCurrency } from '../../redux/reducers/currencyReducer';
 
 class Currency extends Component {
 

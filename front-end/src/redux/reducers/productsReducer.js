@@ -3,15 +3,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 let productsReducer = createSlice({
   name: 'products',
-  initialState: [],
+  initialState: {
+    products: []
+  },
   reducers: {
-    initialize(state, action) {
+    productsInitialize(state, action) {
+      console.log('came into products reducer');
       return {
         ...state,
         products: action.payload.products,
       };
     },
-    setCategory(state, action) {
+    setProducts(state, action) {
       return {
         ...state,
         products: action.payload.products,
@@ -20,6 +23,6 @@ let productsReducer = createSlice({
   }
 });
 
-export const { initialize, setCategory } = productsReducer.actions
+export const { productsInitialize, setProducts } = productsReducer.actions
 
 export default productsReducer.reducer;
