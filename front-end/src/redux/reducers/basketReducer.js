@@ -6,8 +6,6 @@ let basketReducer = createSlice({
   initialState: { products: [] },
   reducers: {
     addToBasket(state, action) {
-      // let products = state.products;
-
       const newItem = JSON.parse(JSON.stringify(action.payload));
       const sameProduct = state.products.find(x => {
         return shallowEqual(x, newItem)
@@ -15,48 +13,27 @@ let basketReducer = createSlice({
 
       if (Object.keys(sameProduct).length !== 0) {
         sameProduct.quantity = sameProduct.quantity + 1;
-        return {
-          ...state,
-          products: sameProduct
-        };
+
       } else {
         let product = newItem;
         product.quantity = 1;
         state.products.push(product);
-
-        // return {
-        //   ...state,
-        //   products: products
-        // };
       }
     },
     onIncreaseQuantity(state, action) {
-      let products = state.products;
-
-      const increaseProduct = products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));
+      const increaseProduct = state.products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));
       increaseProduct.quantity = increaseProduct.quantity + 1;
 
-      return {
-        ...state,
-        products: products
-      };
     },
     onDecreaseQuantity(state, action) {
-      let products = state.products;
-
-      const decreaseProduct = products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));
+      const decreaseProduct = state.products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));
       const quantityIsMoreThanOne = decreaseProduct.quantity > 1;
 
       if (quantityIsMoreThanOne) {
         decreaseProduct.quantity = decreaseProduct.quantity - 1;
       } else {
-        products = products.filter(x => JSON.stringify(x) !== JSON.stringify(action.payload))
+        state.products = state.products.filter(x => JSON.stringify(x) !== JSON.stringify(action.payload))
       }
-
-      return {
-        ...state,
-        products: products
-      };
     }
   }
 }

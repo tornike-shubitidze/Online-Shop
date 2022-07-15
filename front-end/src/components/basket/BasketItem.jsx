@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
-// import { onIncreaseQuantity, onDecreaseQuantity } from '../../redux/actions';
 import { onIncreaseQuantity, onDecreaseQuantity } from '../../redux/reducers/basketReducer';
 import { connect } from "react-redux";
 import ProductAttribute from '../ProductAttribute';
 
 class BasketItem extends Component {
-
     state = {
         counter: 0
     }

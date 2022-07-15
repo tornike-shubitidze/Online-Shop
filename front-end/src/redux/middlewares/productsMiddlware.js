@@ -5,7 +5,6 @@ import { addActivePropertyToAttributes } from "../../utils";
 import { setProducts } from "../reducers/productsReducer";
 
 export const productsMiddleware = (store) => (next) => (action) => {
-    console.log('productsMiddleware came in:', action);
     switch (action.type) {
         case 'categories/setCategory':
             request(API_URL, getCategoryByName(action.payload))
@@ -17,6 +16,8 @@ export const productsMiddleware = (store) => (next) => (action) => {
                         categoryName: categoryName
                     };
                     store.dispatch(setProducts(action.payload))
+                    // store.dispatch(setProducts(action.payload))
+
                     next(action);
                 });
             break;

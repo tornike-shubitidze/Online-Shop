@@ -1,4 +1,3 @@
-// import { INITIALIZE, SET_CURRENCY } from "../actions";
 import { createSlice } from "@reduxjs/toolkit";
 
 
@@ -9,9 +8,7 @@ let currencyReducer = createSlice({
   },
   reducers: {
     initialize(state, action) {
-      return {
-        currencies: action.payload.currencies,
-      };
+      state.currencies = action.payload.currencies
     },
     setCurrency(state, action) {
       state.currencies.map(x => {

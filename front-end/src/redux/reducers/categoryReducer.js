@@ -9,10 +9,8 @@ let categoryReducer = createSlice({
   },
   reducers: {
     initialize(state, action) {
-      return {
-        initialized: true,
-        categories: action.payload.categories,
-      }
+      state.initialized = true;
+      state.categories = action.payload.categories
     },
     setCategory(state, action) {
       state.categories.map(x => {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import BasketItem from '../components/basket/BasketItem';
-import { getTotalPrice, getProductsQuantity } from '../utils';
+import { getTotalPrice, getProductsQuantity, makeId } from '../utils';
 
 class Basket extends Component {
 
@@ -13,7 +13,7 @@ class Basket extends Component {
             <p>CART</p>
             <hr />
             {this.props.basket.products.map(product => {
-                return <BasketItem product={product} cssClass={'cart-item'} canEdit={false} />
+                return <BasketItem product={product} cssClass={'cart-item'} canEdit={false} key={makeId()} />
             })}
             <div className='payment-info'>
                 <div className='all-info'>
