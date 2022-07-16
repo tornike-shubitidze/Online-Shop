@@ -2,8 +2,6 @@ import { request } from "graphql-request";
 import { API_URL } from "../../GraphQL/settings";
 import { GET_CURRENCIES, GET_CATEGORIES, getCategoryByName } from "../../GraphQL/Queries";
 import { addActivePropertyToAttributes } from "../../utils";
-import { initialize } from './../reducers/currencyReducer';
-import { setProducts } from './../reducers/productsReducer';
 
 export const categoryMiddleware = (store) => (next) => (action) => {
 
@@ -22,9 +20,6 @@ export const categoryMiddleware = (store) => (next) => (action) => {
                         currencies: response[1].currencies.map((x, i) => { return { label: x.label, symbol: x.symbol, selected: i === 0 } }),
                         products: addActivePropertyToAttributes(response[2].category.products)
                     };
-
-                    store.dispatch(initialize(action.payload));
-                    store.dispatch(setProducts(action.payload));
                     next(action);
                 })
                 .catch(() => {

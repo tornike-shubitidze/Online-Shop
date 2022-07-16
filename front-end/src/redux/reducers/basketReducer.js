@@ -13,17 +13,14 @@ let basketReducer = createSlice({
 
       if (Object.keys(sameProduct).length !== 0) {
         sameProduct.quantity = sameProduct.quantity + 1;
-
       } else {
-        let product = newItem;
-        product.quantity = 1;
-        state.products.push(product);
+        newItem.quantity = 1
+        state.products.push(newItem);
       }
     },
     onIncreaseQuantity(state, action) {
       const increaseProduct = state.products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));
       increaseProduct.quantity = increaseProduct.quantity + 1;
-
     },
     onDecreaseQuantity(state, action) {
       const decreaseProduct = state.products.find(x => JSON.stringify(x) === JSON.stringify(action.payload));

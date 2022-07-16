@@ -7,18 +7,23 @@ let currencyReducer = createSlice({
     currencies: []
   },
   reducers: {
-    initialize(state, action) {
-      state.currencies = action.payload.currencies
-    },
+    // initialize(state, action) {
+    //   state.currencies = action.payload.currencies
+    // },
     setCurrency(state, action) {
       state.currencies.map(x => {
         x.symbol === action.payload ? x.selected = true : x.selected = false;
         return x;
       })
     }
-  }
+  },
+  extraReducers: {
+    'categories/initialize': (state, action) => {
+      state.currencies = action.payload.currencies
+    },
+  },
 });
 
-export const { initialize, setCurrency } = currencyReducer.actions
+export const { setCurrency } = currencyReducer.actions
 
 export default currencyReducer.reducer;
