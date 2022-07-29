@@ -79,7 +79,7 @@ class ProductDetails extends Component {
                             <h2>{product.brand}</h2>
                             <h1>{product.name}</h1>
 
-                            <br />
+
                             <div>
                                 {product.attributes.map(attribute => {
                                     return (
@@ -91,15 +91,14 @@ class ProductDetails extends Component {
                                     )
                                 })}
                             </div>
-                            <br />
+
                             <b>PRICE:</b>
                             <br />
                             <b>{this.getCurrency(product)}</b>
                             <br />
                             <br />
                             <button onClick={() => this.props.addToBasket(this.state.product)} disabled={!product.inStock}>ADD TO CART</button>
-                            <br />
-                            <br />
+
                             <div className='description' >{parse(product.description)}</div>
                         </div>
                     </div>
