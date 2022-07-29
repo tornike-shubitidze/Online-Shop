@@ -78,7 +78,7 @@ class ProductDetails extends Component {
                         <div className="product-info">
                             <h2>{product.brand}</h2>
                             <h1>{product.name}</h1>
-                            <div className='description' >{parse(product.description)}</div>
+
                             <br />
                             <div>
                                 {product.attributes.map(attribute => {
@@ -100,8 +100,7 @@ class ProductDetails extends Component {
                             <button onClick={() => this.props.addToBasket(this.state.product)} disabled={!product.inStock}>ADD TO CART</button>
                             <br />
                             <br />
-                            <p>Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail
-                                dresses and party dresses from all your favorite brands.</p>
+                            <div className='description' >{parse(product.description)}</div>
                         </div>
                     </div>
                 </> : ''}
